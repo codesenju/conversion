@@ -4,20 +4,20 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) throws NumberFormatException, IOException {
-        // final double ten = 10D;
+        
         Scanner in = new Scanner(System.in);
         double userInput = 0;
         String answer = "y";
         Conversion c = new Conversion();
 
-        System.out.println("Menu");
-        System.out.println("---");
-        System.out.println("a) Kelvin to Celsius");
-        System.out.println("b) Pounds to Kilograms");
-        System.out.println("c) Miles to Kilometres");
-        System.out.println("");
-        
         do {
+            System.out.println("Menu");
+            System.out.println("---");
+            System.out.println("a) Kelvin to Celsius");
+            System.out.println("b) Pounds to Kilograms");
+            System.out.println("c) Miles to Kilometres");
+            System.out.println("");
+
             System.out.print("enter a, b or c : ");
             String menuOption = in.next();
 
