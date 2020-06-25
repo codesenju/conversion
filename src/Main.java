@@ -38,7 +38,7 @@ public class Main {
                 System.out.println(userInput + " Miles = " + c.milesToKm(userInput) + " km");
             }
 
-            System.out.println("Do you want to go back to Main Menu (y/n)? ");
+            System.out.print("Do you want to go back to Main Menu (y/n)? ");
             answer = in.next();
 
         } while (answer.toLowerCase().contains("y"));
