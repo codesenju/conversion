@@ -11,7 +11,7 @@ public class Main {
         Conversion c = new Conversion();
 
         do {
-            System.out.println("Menu");
+            System.out.println("Main Menu");
             System.out.println("---");
             System.out.println("a) Kelvin to Celsius");
             System.out.println("b) Pounds to Kilograms");
