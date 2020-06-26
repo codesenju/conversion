@@ -1,5 +1,5 @@
 ﻿# Conversion
-This java program provides the following conversion:
+This java program provides the following conversions:
 * Kelvin to celsius
 * Pounds to kilograms
 * Miles to kilometers
