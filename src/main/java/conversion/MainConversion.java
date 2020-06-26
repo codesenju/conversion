@@ -3,7 +3,7 @@ package main.java.conversion;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Main {
+public class MainConversion {
 
     public static void main(String[] args) throws NumberFormatException, IOException {
         
