@@ -1,3 +1,5 @@
+package main.java.conversion;
+
 import java.io.IOException;
 import java.util.Scanner;
 
