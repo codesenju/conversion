@@ -13,13 +13,13 @@ pipeline {
   }
   stages {
     stage('Cloning Git') {
-      sh 'docker image prune --all'
       steps {
         git 'https://github.com/codesenju/conversion.git'
       }
     }
     stage('Building image') {
       steps{
+        sh 'docker image prune --all'
         script {
           dockerImage = docker.build registry + ":$BUILD_NUMBER"
         }
