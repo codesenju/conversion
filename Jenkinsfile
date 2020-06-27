@@ -19,11 +19,9 @@ pipeline {
     }
     stage('Building image') {
       steps{
-        sh 'docker image prune --all'
         script {
           dockerImage = docker.build registry + ":$BUILD_NUMBER"
         }
-        sh 'docker images'
       }
     }
 
@@ -40,7 +38,11 @@ pipeline {
     stage('Remove Unused docker image') {
       steps{
         sh 'docker images'
-        sh "docker rmi $registry:$BUILD_NUMBER"
+        sh 'docker rmi $registry:$BUILD_NUMBER'
+        sh 'docker rmi $registry:1'
+        sh 'docker rmi $registry:2'
+        sh 'docker rmi $registry:3'
+        sh 'docker rmi $registry:5'
         sh 'docker images'
       }
     }
