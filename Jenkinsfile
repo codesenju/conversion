@@ -35,14 +35,11 @@ pipeline {
         }
       }
     }
-    stage('Remove Unused docker image') {
+    stage('Clean') {
       steps{
         sh 'docker images'
         sh 'docker rmi $registry:$BUILD_NUMBER'
-        sh 'docker rmi $registry:1'
-        sh 'docker rmi $registry:2'
-        sh 'docker rmi $registry:3'
-        sh 'docker rmi $registry:5'
+        sh 'docker rmi $registry:latest'
         sh 'docker images'
       }
     }
