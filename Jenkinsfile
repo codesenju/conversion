@@ -1,4 +1,9 @@
 pipeline {
+  environment {
+    registry = "codesenju/conversion"
+    registryCredential = 'DockerHub'
+    dockerImage = ''
+  }
   agent {
     docker {
       image 'docker:dind'
@@ -7,16 +12,31 @@ pipeline {
 
   }
   stages {
-    stage('Build') {
+    stage('Cloning Git') {
       steps {
-        sh '''ls
-        whoami
-docker info
-docker build -t codesenju/conversion:${BUILD_NUMBER} .
-docker tag codesenju/conversion:${BUILD_NUMBER} codesenju/conversion:latest
-docker images'''
+        git 'https://github.com/codesenju/conversion.git'
       }
     }
-
+    stage('Building image') {
+      steps{
+        script {
+          dockerImage = docker.build registry + ":$BUILD_NUMBER"
+        }
+      }
+    }
+    stage('Deploy Image') {
+      steps{
+        script {
+          docker.withRegistry( '', registryCredential ) {
+            dockerImage.push()
+          }
+        }
+      }
+    }
+    stage('Remove Unused docker image') {
+      steps{
+        sh "docker rmi $registry:$BUILD_NUMBER"
+      }
+    }
   }
 }
