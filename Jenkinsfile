@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker {
       image 'docker:dind-rootless'
-      args '-v /var/run/docker.sock:/var/run/docker.sock -u 0'
+      args '-v /var/run/docker.sock:/var/run/docker.sock'
     }
 
   }
